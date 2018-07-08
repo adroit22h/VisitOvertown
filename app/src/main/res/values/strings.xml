@@ -3,4 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dorsey_park"><b>Dorsey Park</b></string>
+    <string name="gibson_park"><b>Gibson Park</b></string>
+    <string name="william_park"><b>Williams Park</b></string>
 </resources>

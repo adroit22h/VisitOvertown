@@ -5,28 +5,58 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
-//    implements Historic.OnFragmentInteractionListener,Outdoors.OnFragmentInteractionListener,
-//    Food.OnFragmentInteractionListener, Events.OnFragmentInteractionListener, GettingAround.OnFragmentInteractionListener,
-//    Resources.OnFragmentInteractionListener;
 
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //set the activity content
         setContentView(R.layout.activity_main);
 
-        TabLayout tabLayout = findViewById(R.id.tabLayout);
-        tabLayout.addTab(tabLayout.newTab().setText("Historic"));
-        tabLayout.addTab(tabLayout.newTab().setText("Outdoor"));
-        tabLayout.addTab(tabLayout.newTab().setText("Food"));
-        tabLayout.addTab(tabLayout.newTab().setText("Events"));
-        tabLayout.addTab(tabLayout.newTab().setText("GettingAround"));
-        tabLayout.addTab(tabLayout.newTab().setText("Resources"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        //locates the viewpager that allows the user move from screen to screen
+        ViewPager viewPager = findViewById(R.id.vpPager);
 
-        final ViewPager viewPager = findViewById(R.id.vpPager);
-        final PagerAdapter adapter = new PagerAdapter((getSupportFragmentManager()), tabLayout.getTabCount());
+        //Creates an adapter tha knows which fragment to show on what page
+        PagerAdapter adapter = new PagerAdapter(this, getSupportFragmentManager());
+
+        //Puts the adapter on the ViewPager
         viewPager.setAdapter(adapter);
+
+        //Locates the tabLayout to show the tabs
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
+
+        //Updates the tab layout when swiped
+        tabLayout.setupWithViewPager(viewPager);
+    }
+
+
+}
+
+
+//        implements
+//        Historic.OnFragmentInteractionListener,Outdoors.OnFragmentInteractionListener,
+//
+//    Food.OnFragmentInteractionListener, Events.OnFragmentInteractionListener, GettingAround.OnFragmentInteractionListener,
+//    Resources.OnFragmentInteractionListener;
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//
+//        TabLayout tabLayout = findViewById(R.id.tabLayout);
+//        tabLayout.addTab(tabLayout.newTab().setText("Historic"));
+//        tabLayout.addTab(tabLayout.newTab().setText("Outdoor"));
+//        tabLayout.addTab(tabLayout.newTab().setText("Food"));
+//        tabLayout.addTab(tabLayout.newTab().setText("Events"));
+//        tabLayout.addTab(tabLayout.newTab().setText("GettingAround"));
+//        tabLayout.addTab(tabLayout.newTab().setText("Resources"));
+//        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+//
+//        final ViewPager viewPager = findViewById(R.id.vpPager);
+//        final PagerAdapter adapter = new PagerAdapter((getSupportFragmentManager()), tabLayout.getTabCount());
+//        viewPager.setAdapter(adapter);
 
 //        //you need to delete all this and follow the lesson
 //        viewPager.setOnPageChangeListerner(new TabLayout.TabLayoutOnPageChangeListerner(TabLayout));
@@ -45,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
 //
 //
 //            }
-    }
-}
+//    }
+//}
 
     //public void onFragmentInteraction(Uri uri) {
 //
