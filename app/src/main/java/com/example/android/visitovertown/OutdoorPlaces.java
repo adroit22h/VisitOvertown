@@ -1,47 +1,51 @@
 package com.example.android.visitovertown;
 
 public class OutdoorPlaces {
-    //Names of Outdoor Places
-    private String mOutdoorPlaceName;
+            // Image of the location
+        private int mLocationImage;
 
-    //Drawable resource reference
-    private int mImageResource;
+        // Name of the location
+        private String mLocationName;
 
-    //Description
-    private String mDescription;
+        // address of the location
+        private String mLocationAddress;
 
-    /**
-     * @param placeName is the name of the outdoor location
-     * @param imageResource the name of the corresponding image
-     * @param iDescription a description of the the location
-     */
-
-    public OutdoorPlaces(String placeName, int imageResource, String iDescription) {
-        mOutdoorPlaceName = placeName;
-        mImageResource = imageResource;
-        mDescription = iDescription;
-    }
-
-    /**
-     * pulls the name of the place
-     */
-    public String getmOutdoorPlaceName() {
-        return mOutdoorPlaceName;
-    }
+        /*
+         * Create a new OutdoorPlaces object.
+         *
+         * @param iImage is the drawable image
+         * @param vName is the corresponding Android version number (e.g. 2.3-2.7)
+         * @param vAddress is drawable reference ID that corresponds to the Android version
+         * */
+        public OutdoorPlaces(int iImage, String vName, String vAddress)
+        {
+            mLocationImage = iImage;
+            mLocationName = vName;
+            mLocationAddress= vAddress;
+        }
 
     /**
-     *
-     * pulls the Image
+     * Get the image location
      */
-    public int getmImageResource () {
-        return mImageResource;
+    public int getLocationImage() {
+        return mLocationImage;
     }
 
-    /**
-     *
-     * pulls the description
-     */
-    public String getmDescription (){
-        return mDescription;
+        /**
+         * Get the name of the location
+         */
+        public String getLocationName() {
+            return mLocationName;
+        }
+
+        /**
+         * Get the address of the location
+         */
+        public String getLocationAddress() {
+            return mLocationAddress;
+        }
+
+
+
+
     }
-}

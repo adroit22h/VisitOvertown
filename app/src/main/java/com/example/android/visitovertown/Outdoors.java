@@ -5,58 +5,94 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.support.v4.app.Fragment;
 
 import java.util.ArrayList;
 
-public class Outdoors extends Fragment {
-    public Outdoors() {
-        //Required empty public constructor
-    }
-
+public class Outdoors extends AppCompatActivity {
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.outdoorplaces_list, container, false);
-        //Makes an ArrayList of Category Objects
-        final ArrayList<OutdoorPlaces> outdoorplaces = new ArrayList<OutdoorPlaces>();
-        outdoorplaces.add(new OutdoorPlaces(getString(R.string.dorsey_park), R.drawable.google_map_overtown2, getString(R.string.app_name)));
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_outdoors);
 
-        //Makes a
-        OutdoorPlacesAdapter outdoorPlacesAdapter = new OutdoorPlacesAdapter(getActivity(), outdoorplaces );
+        // Create an ArrayList of OutdoorPlaces objects
+        ArrayList<OutdoorPlaces> outdoorPlaces = new ArrayList<OutdoorPlaces>();
+        outdoorPlaces.add(new OutdoorPlaces(R.drawable.google_map_overtown, "Map of Overtown", "123 West Main St, Miami, fL 33136"));
+//        androidFlavors.add(new AndroidFlavor("Donut", "1.6", R.drawable.donut));
+//        androidFlavors.add(new AndroidFlavor("Eclair", "2.0-2.1", R.drawable.eclair));
+//        androidFlavors.add(new AndroidFlavor("Froyo", "2.2-2.2.3", R.drawable.froyo));
+//        androidFlavors.add(new AndroidFlavor("GingerBread", "2.3-2.3.7", R.drawable.gingerbread));
+//        androidFlavors.add(new AndroidFlavor("Honeycomb", "3.0-3.2.6", R.drawable.honeycomb));
+//        androidFlavors.add(new AndroidFlavor("Ice Cream Sandwich", "4.0-4.0.4", R.drawable.icecream));
+//        androidFlavors.add(new AndroidFlavor("Jelly Bean", "4.1-4.3.1", R.drawable.jellybean));
+//        androidFlavors.add(new AndroidFlavor("KitKat", "4.4-4.4.4", R.drawable.kitkat));
+//        androidFlavors.add(new AndroidFlavor("Lollipop", "5.0-5.1.1", R.drawable.lollipop));
+//        androidFlavors.add(new AndroidFlavor("Marshmallow", "6.0-6.0.1", R.drawable.marshmallow));
 
-        //get a reference to the listview
-        ListView listView = (ListView) rootView.findViewById(R.id.list);
-        listView.setAdapter(outdoorPlacesAdapter);
+        // Create an {@link AndroidFlavorAdapter}, whose data source is a list of
+        // {@link AndroidFlavor}s. The adapter knows how to create list item views for each item
+        // in the list.
+        OutdoorPlacesAdapter placesAdapter = new OutdoorPlacesAdapter(this, outdoorPlaces);
 
-        //Set a click listener
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //retrieves the category
-
-                OutdoorPlaces outdoorPlaces = outdoorplaces.get(position);
-                //get the name
-                String title = outdoorPlaces.getmOutdoorPlaceName();
-                //get the image
-                int imageResourceID= outdoorPlaces.getmImageResource();
-                //
-                String firstParagraph= outdoorPlaces.getmDescription();
-
-                //Intent outdoorPlacesDetail = new Intent(getActivity())
-            }
-        });
-              return rootView;
-
-                
+        // Get a reference to the ListView, and attach the adapter to the listView.
+        ListView listView = (ListView) findViewById(R.id.listview_outdoors);
+        listView.setAdapter(placesAdapter);
     }
 }
 
 
+
+
+//public class Outdoors extends Fragment {
+//    public Outdoors() {
+//        //Required empty public constructor
+//    }
+//
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                             Bundle savedInstanceState) {
+//        View rootView = inflater.inflate(R.layout.outdoorplaces_list, container, false);
+//        //Makes an ArrayList of Category Objects
+//        final ArrayList<OutdoorPlaces> outdoorplaces = new ArrayList<OutdoorPlaces>();
+//        outdoorplaces.add(new OutdoorPlaces(getString(R.string.dorsey_park), R.drawable.google_map_overtown2, getString(R.string.app_name)));
+//
+//        //Makes a
+//        OutdoorPlacesAdapter outdoorPlacesAdapter = new OutdoorPlacesAdapter(getActivity(), outdoorplaces );
+//
+//        //get a reference to the listview
+//        ListView listView = (ListView) rootView.findViewById(R.id.list);
+//        listView.setAdapter(outdoorPlacesAdapter);
+//
+//        //Set a click listener
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                //retrieves the category
+//
+//                OutdoorPlaces outdoorPlaces = outdoorplaces.get(position);
+//                //get the name
+//                String title = outdoorPlaces.getmOutdoorPlaceName();
+//                //get the image
+//                int imageResourceID= outdoorPlaces.getmImageResource();
+//                //
+//                String firstParagraph= outdoorPlaces.getmDescription();
+//
+//                //Intent outdoorPlacesDetail = new Intent(getActivity())
+//            }
+//        });
+//              return rootView;
+//
+//
+//    }
+//}
+//
+//
 
 
 ///**
