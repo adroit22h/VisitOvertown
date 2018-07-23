@@ -12,18 +12,7 @@ import java.util.ArrayList;
 public class outdoorsActivity extends AppCompatActivity {
 
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.fragment_outdoors);
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.listview_outdoors, new Outdoors())
-                    .commit();
-        }
-    }
 
-
-}
 //
 //
 //    @Override
@@ -50,12 +39,12 @@ public class outdoorsActivity extends AppCompatActivity {
         // Create an {@link AndroidFlavorAdapter}, whose data source is a list of
         // {@link AndroidFlavor}s. The adapter knows how to create list item views for each item
         // in the list.
-        OutdoorPlacesAdapter placesAdapter = new OutdoorPlacesAdapter(this, outdoorPlaces);
+    //    OutdoorPlacesAdapter placesAdapter = new OutdoorPlacesAdapter(this, outdoorPlaces);}
 
         // Get a reference to the ListView, and attach the adapter to the listView.
 
 //        ListView listView = (ListView) findViewById(R.id.listview_outdoors);
 //        listView.setAdapter(placesAdapter);
 //    }
-//}
+}
 
