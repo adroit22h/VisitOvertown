@@ -1,33 +1,45 @@
-<!-- Layout for the main screen -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:minHeight="?android:attr/listPreferredItemHeight"
-android:padding="5dp">
-
-<ImageView
-    android:id="@+id/location_image"
-    android:layout_width="200dp"
-    android:layout_height="200dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginTop="16dp"
-    android:scaleType="fitCenter"/>
-
-<TextView
-    android:id="@+id/location_name"
-    android:layout_width="wrap_content"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_toRightOf="@id/location_image"
-    android:padding="16dp"
-    android:text="HappyCow"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp"
+    xmlns:tools="http://schemas.android.com/tools">
 
-<TextView
-    android:id="@+id/location_address"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/location_name"
-    android:layout_toRightOf="@id/location_image"
-    android:padding="16dp"
-    android:text="HappyCow"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
 
-</RelativeLayout>
+       <ImageView
+            android:id="@+id/location_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <TextView
+            android:id="@+id/location_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="happycow"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/location_image"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/location_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HappyCow"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/location_name"
+            android:elevation="2dp"/>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+
+

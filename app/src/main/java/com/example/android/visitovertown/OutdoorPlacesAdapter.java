@@ -15,26 +15,16 @@ import java.util.ArrayList;
 
 
         /*
-         * {@link OutdoorPlacesAdapter} is an {@link ArrayAdapter} that can provide the layout for each list
+         * OutdoorPlacesAdapter is an {@link ArrayAdapter} that can provide the layout for each list
          * based on a data source, which is a list of {@link OutdoorPlaces} objects.
          * */
         public class OutdoorPlacesAdapter extends ArrayAdapter<OutdoorPlaces>  {
 
             private static final String LOG_TAG = OutdoorPlacesAdapter.class.getSimpleName();
 
-            /**
-             * This is our own custom constructor (it doesn't mirror a superclass constructor).
-             * The context is used to inflate the layout file, and the list is the data we want
-             * to populate into the lists.
-             *
-             * @param context        The current context. Used to inflate the layout file.
-             * @param androidFlavors A List of AndroidFlavor objects to display in a list
-             */
+
             public OutdoorPlacesAdapter(Activity context, ArrayList<OutdoorPlaces> outdoorPlaces) {
-                // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
-                // the second argument is used when the ArrayAdapter is populating a single TextView.
-                // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
-                // going to use this second argument, so it can be any value. Here, we used 0.
+                
                 super(context, 0, outdoorPlaces);
             }
 
@@ -53,7 +43,7 @@ import java.util.ArrayList;
                 View listItemView = convertView;
                 if(listItemView == null) {
                     listItemView = LayoutInflater.from(getContext()).inflate(
-                            R.layout.outdoorplaces_list, parent, false);
+                            R.layout.fragment_outdoors, parent, false);
                 }
 
                 // Get the {@link AndroidFlavor} object located at this position in the list
