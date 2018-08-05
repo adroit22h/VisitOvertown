@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.support.v4.app.Fragment;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
@@ -27,14 +28,13 @@ public class Outdoors extends Fragment {
         View rootView = inflater.inflate(R.layout.outdoorplaces_list, container, false);
 
 
-        /** TODO: Insert all the code from the NumberActivity’s onCreate() method after the setContentView method call */
-
-        //return rootView;
 
         // Create an ArrayList of OutdoorPlaces objects
         final ArrayList<OutdoorPlaces> outdoorPlaces = new ArrayList<OutdoorPlaces>();
-        outdoorPlaces.add(new OutdoorPlaces(R.drawable.google_map_overtown, "Map of Overtown", "123 West Main St, Miami, FL 33136"));
-        outdoorPlaces.add(new OutdoorPlaces(R.drawable.miami_overtown_3rd_ave, "Pictures of Overtown", "452 Happy Cow Road, Miami, FL 33132"));
+        outdoorPlaces.add(new OutdoorPlaces(R.drawable.gibson_park, "Gibson Park (photo credit: Mayat)", "401 NW 12 Street, Miami, FL 33136"));
+        outdoorPlaces.add(new OutdoorPlaces(R.drawable.dorsey, "Dorsey Park (photo credit: miamigov.com)", "1701 NW 1st Ave, Miami, FL 33136"));
+        outdoorPlaces.add(new OutdoorPlaces(R.drawable.williamspark, "Williams Park (photo credit: miamigov.com)", "1717 NW 5 Ave, Miami, FL 33136"));
+
 
         // {@link OutdoorPlacesAdapter}s. The adapter knows how to create list item views for each item
         // in the list.
@@ -48,31 +48,30 @@ public class Outdoors extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //get the object at a given position when the user clicked on
-                OutdoorPlaces OutdoorPlaces = outdoorPlaces.get(position);
+                //get the detail page of a card when the user clicks on it
+                switch (position){
+                    case 0:
+                        Intent i = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("http://www.miamigov.com/parks/park_gibson.html"));
+                        startActivity(i);
+                        break;
+                    case 1:
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.miamigov.com/parks/park_dorsey.html")));
+                        break;
+                    case 2:
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.miamigov.com/parks/park_Williams.html")));
+                        break;
+
+
             }
-        });
 
-
-
+        };
+    });
         return rootView;
     }
+
 }
 
 
-
-//Set a click listener
-//   listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//         @Override
-//           public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
-//get the name
-//                String title = outdoorPlaces.getmOutdoorPlaceName();
-//                get the image
-//                int imageResourceID= outdoorPlaces.getmImageResource();
-//
-//                String firstParagraph= outdoorPlaces.getmDescription();
-//
-//                //Intent outdoorPlacesDetail = new Intent(getActivity())
 
 

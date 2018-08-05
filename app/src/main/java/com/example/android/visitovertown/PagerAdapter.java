@@ -17,21 +17,24 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
+                Home home = new Home();
+                return home;
+            case 1:
                 Historic historic = new Historic();
                 return historic;
-            case 1:
+            case 2:
                 Outdoors outdoors = new Outdoors();
                 return outdoors;
-            case 2:
+            case 3:
                 Food food = new Food();
                 return food;
-            case 3:
+            case 4:
                 Events events = new Events();
                 return events;
-            case 4:
+            case 5:
                 GettingAround gettingAround = new GettingAround();
                 return gettingAround;
-            case 5:
+            case 6:
                 Resources resources = new Resources();
                 return resources;
 
@@ -42,23 +45,25 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 5;
+        return 7;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "historic";
+                return "home";
             case 1:
-                return "Outdoors";
+                return "historic";
             case 2:
-                return "Food";
+                return "Outdoors";
             case 3:
-                return "Events";
+                return "Food";
             case 4:
-                return "Getting Around";
+                return "Events";
             case 5:
+                return "Getting Around";
+            case 6:
                 return "Resources";
             default:
                 return null;
@@ -69,43 +74,4 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
 
 
-//    int aQuantityTabs;
-//    public PagerAdapter(FragmentManager fm, int NumberOfTabs){
-//        super (fm);
-//        this.aQuantityTabs = NumberOfTabs;
-//    }
-//
-//    @Override
-//    public Fragment getItem(int position) {
-//        switch(position){
-//            case 0:
-//                Historic historic = new Historic();
-//                return historic;
-//            case 1:
-//                Outdoors outdoors = new Outdoors();
-//                return outdoors;
-//            case 2:
-//                Food food = new Food();
-//                return food;
-//            case 3:
-//                Events events = new Events();
-//                return events;
-//            case 4:
-//                GettingAround gettingAround = new GettingAround();
-//                return gettingAround;
-//            case 5:
-//                Resources resources=new Resources();
-//                return resources;
-//
-//                default:
-//                    return null;
-//
-//        }
-//
-//    }
-//
-//    @Override
-//    public int getCount() {
-//        return aQuantityTabs;
-//    }
-//}
+
