@@ -1,32 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home">
 
-   <!-- TODO: Update blank fragment layout -->
-    <ImageView
-        android:id="@+id/image"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/miami_overtown_3rd_ave2"
-        android:layout_below="@id/welcome_overtown"/>
-    <TextView
-        android:id="@+id/welcome_overtown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to Overtown"
+        android:layout_height="match_parent">
 
-        android:textSize="30dp"/>
+        <TextView
+            android:id="@+id/welcome_overtown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/size16"
+            android:text="@string/welcome_overtown"
+            android:contentDescription="@string/welcome_overtown_desc"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@color/myBlue"
+            android:textStyle="bold" />
 
+        <ImageView
+            android:id="@+id/wall_art_pic"
+            android:layout_width="@dimen/size400"
+            android:layout_height="@dimen/size400"
+            android:layout_below="@id/welcome_overtown"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/wall_pics"
+            android:scaleType="fitXY"
+            android:src="@drawable/wall_art_2" />
 
-    <VideoView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/image"
-        android:id="@+id/video" />
+        <TextView
+            android:id="@+id/photo_credit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wall_art_pic"
+            android:padding="@dimen/size2"
+            android:text="@string/photo_credit"
+            android:contentDescription="@string/photo_credit"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/myBlue" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/photo_credit"
+            android:padding="@dimen/size10"
+            android:text="@string/home_description"
+            android:contentDescription="@string/home_description"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/myBlue" />
 
+        <VideoView
+            android:id="@+id/video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wall_art_pic" />
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

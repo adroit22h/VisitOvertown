@@ -6,4 +6,17 @@
     <string name="dorsey_park"><b>Dorsey Park</b></string>
     <string name="gibson_park"><b>Gibson Park</b></string>
     <string name="william_park"><b>Williams Park</b></string>
+    <string name="visit_overtown">Visit Overtown</string>
+    <string name="welcome_overtown">Welcome to Overtown</string>
+    <string name="test">Test</string>
+    <string name="home_description"><b>Past.Present.Future.</b>\n\nA look into one of the oldest community before the incorporation of the City of
+        Miami.  Originally known as <i>colored town</i>, explore the past in the many Historic cites nearby including the Historic <b>Lyric Theatre</b>. \n\nMarvel at world renowned artist, Purvis\'s\ Young original murals.
+        Take a walk back to history, to the home of the Negro baseball league at Dorsey Park. Enjoy delicious food at local soul food restaurants. \n\nLast, no visit to
+        Overtown is complete without a stop at the <b>Black Police Precinct and Courthouse Museum</b>. \n<i>What are you waiting for? start exploring now.</i>
+
+" </string>
+    <string name="photo_credit">Photo Credits: Mayat</string>
+    <string name="visit_overtown_desc">Visit Overtown the title of the app</string>
+    <string name="welcome_overtown_desc">Welcome to Overtown, a welcoming text </string>
+    <string name="wall_pics">A moving image of the pictures that changes every few seconds. </string>
 </resources>

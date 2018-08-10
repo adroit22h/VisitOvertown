@@ -28,12 +28,14 @@ public class Outdoors extends Fragment {
         View rootView = inflater.inflate(R.layout.outdoorplaces_list, container, false);
 
 
-
         // Create an ArrayList of OutdoorPlaces objects
         final ArrayList<OutdoorPlaces> outdoorPlaces = new ArrayList<OutdoorPlaces>();
-        outdoorPlaces.add(new OutdoorPlaces(R.drawable.gibson_park, "Gibson Park (photo credit: Mayat)", "401 NW 12 Street, Miami, FL 33136"));
-        outdoorPlaces.add(new OutdoorPlaces(R.drawable.dorsey, "Dorsey Park (photo credit: miamigov.com)", "1701 NW 1st Ave, Miami, FL 33136"));
-        outdoorPlaces.add(new OutdoorPlaces(R.drawable.williamspark, "Williams Park (photo credit: miamigov.com)", "1717 NW 5 Ave, Miami, FL 33136"));
+        outdoorPlaces.add(new OutdoorPlaces(R.drawable.gibson_park, "Gibson Park (photo credit: Mayat)", "401 NW 12 Street, Miami, FL 33136", "Enjoy a full-sized swimming pool year round. " +
+                "while in town workout at the gym for just a $1/day. Also available a first come first serve Basketball court.  There also a restaurant outside"));
+        outdoorPlaces.add(new OutdoorPlaces(R.drawable.dorsey, "Dorsey Park (photo credit: miamigov.com)", "1701 NW 1st Ave, Miami, FL 33136", "Complete your trip with an art walk along side the park and the beauty of being outdoors at the same time. " +
+                "There's a playground area and an open baseball field."));
+        outdoorPlaces.add(new OutdoorPlaces(R.drawable.williamspark, "Williams Park (photo credit: miamigov.com)", "1717 NW 5 Ave, Miami, FL 33136", "With tennis, basketball and swimming facilities, this is your one stop " +
+                "stop for fitness and relaxation."));
 
 
         // {@link OutdoorPlacesAdapter}s. The adapter knows how to create list item views for each item
@@ -49,7 +51,7 @@ public class Outdoors extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //get the detail page of a card when the user clicks on it
-                switch (position){
+                switch (position) {
                     case 0:
                         Intent i = new Intent(Intent.ACTION_VIEW,
                                 Uri.parse("http://www.miamigov.com/parks/park_gibson.html"));
@@ -63,10 +65,12 @@ public class Outdoors extends Fragment {
                         break;
 
 
+                }
+
             }
 
-        };
-    });
+            ;
+        });
         return rootView;
     }
 

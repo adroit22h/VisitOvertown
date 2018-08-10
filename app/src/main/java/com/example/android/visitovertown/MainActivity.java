@@ -9,13 +9,11 @@ import android.support.v7.widget.RecyclerView;
 
 
 public class MainActivity extends AppCompatActivity {
-    //for c
+//layout for content of the other pages.
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //testing recylcler view
-
-
 
         //set the activity content
         setContentView(R.layout.activity_main);

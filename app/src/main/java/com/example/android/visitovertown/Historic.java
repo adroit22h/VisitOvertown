@@ -19,6 +19,8 @@ import java.util.zip.Inflater;
 
 public class Historic extends Fragment {
 
+    //This page highlights some historic places in Overtown.
+
     public Historic() {
     }
 
@@ -27,14 +29,14 @@ public class Historic extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.outdoorplaces_list, container, false);
 
-
-
         // Create an ArrayList of OutdoorPlaces objects
         final ArrayList<OutdoorPlaces> outdoorPlaces = new ArrayList<OutdoorPlaces>();
-        outdoorPlaces.add(new OutdoorPlaces(R.drawable.blackpolice_precint, "Historic Black Police Precint Courthouse and Museum (photo credit: Mayat)", "480 nw 11 Street, Miami, FL 33136"));
-        outdoorPlaces.add(new OutdoorPlaces(R.drawable.dorsey, "Dorsey Park (photo credit: miamigov.com)", "1701 NW 1st Ave, Miami, FL 33136"));
-        outdoorPlaces.add(new OutdoorPlaces(R.drawable.williamspark, "Williams Park (photo credit: miamigov.com)", "1717 NW 5 Ave, Miami, FL 33136"));
-
+        outdoorPlaces.add(new OutdoorPlaces(R.drawable.lyric_theatre, "Lyric Theatre (photo credit:http://amusements-parks.com/Florida/Miami/Black_Archives__Historic_Lyric_Theater)",
+                "819 nw 2nd Avenue, Miami, FL 33136", "This theatre has been a major entertainment center for black in Miami since 1913. " +
+                "Registered as a U.S. National Register of Historic Places since 1989. It features high quality performances in its 400 seat theatre and multifacet facility."));
+        outdoorPlaces.add(new OutdoorPlaces(R.drawable.blackpolice_precint, "Black Police Precint and Courthouse Museum (photo credit: https://historicalblackprecinct.org/#)",
+                "480 NW 11 Street, Miami, FL 33162", "Explore the first African American police officers in the City of Miami as they served during pre-Civil Rights eras of 1940s,50s, and 60s." +
+                "Getting married, checkout the Ball & Chain Wedding for a quick and frugal wedding in the courthouse or a drive-through ceremony."));
 
         // {@link OutdoorPlacesAdapter}s. The adapter knows how to create list item views for each item
         // in the list.
@@ -48,33 +50,25 @@ public class Historic extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //get the object at a given position when the user clicked on
-                switch (position){
+                //get the detail page of a card when the user clicks on it
+                switch (position) {
                     case 0:
-                        Intent videoClient = new Intent(Intent.ACTION_VIEW);
-                        videoClient.setData (Uri.parse("https://www.youtube.com/watch?v=WpUE8YAlNak"));
-                        videoClient.setClassName("com.google.android.youtube", "com.google.android.youtube.WatchActivity");
-                        startActivity(videoClient);
-
-
-
-                     //This code bring up the Youtube video; however once there..it crashes.
-//                        Intent i = new Intent(Intent.ACTION_VIEW,
-//                                Uri.parse("https://www.youtube.com/watch?v=WpUE8YAlNak"));
-//                        startActivity(i);
+                        Intent i = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("https://www.bahlt.org/"));
+                        startActivity(i);
                         break;
-
-
-                //OutdoorPlaces OutdoorPlaces = outdoorPlaces.get(position);
+                    case 1:
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://historicalblackprecinct.org/")));
+                        break;
 
                 }
 
-            };
+            }
+
+            ;
         });
         return rootView;
     }
 
 }
-
-
 

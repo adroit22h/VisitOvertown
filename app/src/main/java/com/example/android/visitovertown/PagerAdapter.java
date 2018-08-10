@@ -31,13 +31,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case 4:
                 Events events = new Events();
                 return events;
-            case 5:
-                GettingAround gettingAround = new GettingAround();
-                return gettingAround;
-            case 6:
-                Resources resources = new Resources();
-                return resources;
-
             default:
                 return null;
         }
@@ -45,7 +38,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 7;
+        return 5;
     }
 
     @Override
@@ -61,10 +54,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 return "Food";
             case 4:
                 return "Events";
-            case 5:
-                return "Getting Around";
-            case 6:
-                return "Resources";
             default:
                 return null;
 

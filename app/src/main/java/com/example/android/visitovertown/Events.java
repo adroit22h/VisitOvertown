@@ -1,108 +1,69 @@
 package com.example.android.visitovertown;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import java.util.ArrayList;
+//This is the event page.  It list some events happening in Overtown.
 
-///**
-// * A simple {@link Fragment} subclass.
-// * Activities that contain this fragment must implement the
-// * {@link Events.OnFragmentInteractionListener} interface
-// * to handle interaction events.
-// * Use the {@link Events#newInstance} factory method to
-// * create an instance of this fragment.
-// */
 public class Events extends Fragment {
-//    // TODO: Rename parameter arguments, choose names that match
-//    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//    private static final String ARG_PARAM1 = "param1";
-//    private static final String ARG_PARAM2 = "param2";
-//
-//    // TODO: Rename and change types of parameters
-//    private String mParam1;
-//    private String mParam2;
-//
-//    private OnFragmentInteractionListener mListener;
-//
-//    public Events() {
-//        // Required empty public constructor
+    public Events() {
     }
-//
-//    /**
-//     * Use this factory method to create a new instance of
-//     * this fragment using the provided parameters.
-//     *
-//     * @param param1 Parameter 1.
-//     * @param param2 Parameter 2.
-//     * @return A new instance of fragment Events.
-//     */
-//    // TODO: Rename and change types and number of parameters
-//    public static Events newInstance(String param1, String param2) {
-//        Events fragment = new Events();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_events, container, false);
-//    }
-//
-//    // TODO: Rename method, update argument and hook method into UI event
-//    public void onButtonPressed(Uri uri) {
-//        if (mListener != null) {
-//            mListener.onFragmentInteraction(uri);
-//        }
-//    }
-//
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
-//    }
-//
-//    @Override
-//    public void onDetach() {
-//        super.onDetach();
-//        mListener = null;
-//    }
-//
-//    /**
-//     * This interface must be implemented by activities that contain this
-//     * fragment to allow an interaction in this fragment to be communicated
-//     * to the activity and potentially other fragments contained in that
-//     * activity.
-//     * <p>
-//     * See the Android Training lesson <a href=
-//     * "http://developer.android.com/training/basics/fragments/communicating.html"
-//     * >Communicating with Other Fragments</a> for more information.
-//     */
-//    public interface OnFragmentInteractionListener {
-//        // TODO: Update argument type and name
-//        void onFragmentInteraction(Uri uri);
-//    }
-//}
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.outdoorplaces_list, container, false);
+
+
+        // Create an ArrayList of OutdoorPlaces objects
+        final ArrayList<OutdoorPlaces> outdoorPlaces = new ArrayList<OutdoorPlaces>();
+        outdoorPlaces.add(new OutdoorPlaces(R.drawable.lyric_live_event, "Lyric Live (Photo Credit:  https://www.bahlt.org/events)",
+                "819 nw 2nd Avenue, Miami, FL 33136", "Happens every first Friday of the month. " +
+                "It is an interactive talent showcase. Features a comedian, live band, DJ and a chance to go home with $500!"));
+        outdoorPlaces.add(new OutdoorPlaces(R.drawable.folklife_friday_flyer, "Folklife Friday (Photo Credit: http://www.bloggingblackmiami.com)",
+                "9th Street and 2nd Avenue", "Want to enjoy the best local food? From fried conch fritters, barbecue ribs, jamaican jerk " +
+                "chicken to soul food. You don't want to miss this monthly festival, happening the first Friday of every month."));
+
+
+        // {@link OutdoorPlacesAdapter}s. The adapter knows how to create list item views for each item
+        // in the list.
+        OutdoorPlacesAdapter placesAdapter = new OutdoorPlacesAdapter(getActivity(), outdoorPlaces);
+
+        // Get a reference to the ListView, and attach the adapter to the listView.
+        ListView listView = (ListView) rootView.findViewById(R.id.listview_outdoors);
+        listView.setAdapter(placesAdapter);
+
+//Set a click listerner
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //get the detail page of a card when the user clicks on it
+                switch (position) {
+                    case 0:
+                        Intent i = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("https://www.bahlt.org/events"));
+                        startActivity(i);
+                        break;
+                    case 1:
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://experienceovertown.com/event/folklife/")));
+                        break;
+
+                }
+
+            }
+
+            ;
+        });
+        return rootView;
+    }
+
+}
